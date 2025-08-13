@@ -19,7 +19,7 @@ def create_app():
   db.init_app(app)
   login_manager.init_app(app)
 
-  from models.user import User
+  from models import User
 
   @login_manager.user_loader
   def load_user(user_id):
@@ -29,8 +29,9 @@ def create_app():
   def unauthorized():
     return {"message": "Autenticação necessária"}, 401
 
-  from .routes import register_routes
-  register_routes(app)
+  from .routes import register_user_routes, register_diet_routes
+  register_user_routes(app)
+  register_diet_routes(app)
 
   with app.app_context():
     db.create_all()
