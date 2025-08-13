@@ -36,19 +36,20 @@ def register_user_routes(app):
 def register_diet_routes(app):
     diet = DietController()
 
-    @app.route('/register_diet', methods = ["POST"])
+    @app.route('/diet/register', methods = ["POST"])
     @login_required
     def register_diet():
         return diet.register_diet()
     
-    # @app.route('/logout', methods = ["GET"])
-    # @login_required
-    # def logout():
-    #     return user.logout()
+    @app.route('/diet/list', methods = ["GET"])
+    @login_required
+    def list_diets():
+        return diet.list_diets()
     
-    # @app.route('/user', methods = ["POST"])
-    # def create_user():
-    #     return user.create_user()
+    @app.route('/diet/update/<int:diet_id>', methods = ["PUT"])
+    @login_required
+    def update_diet(diet_id):
+        return diet.update_diet(diet_id)
     
     # @app.route('/user/<int:user_id>', methods = ["GET"])
     # @login_required
