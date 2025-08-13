@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from models.user import User
+from models import User
 from flask_login import login_user, current_user, logout_user
 from app import db
 import bcrypt
