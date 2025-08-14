@@ -41,7 +41,7 @@ cp .env.example .env
 4. Construa e suba os containers:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 5. A API estará disponível em: <http://localhost:5000>
