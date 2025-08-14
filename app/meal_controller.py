@@ -80,3 +80,11 @@ class MealController:
       return jsonify({"message": "Refeição deletada com sucesso!"}), 200
     except Exception:
       return jsonify({"erro": "Ocorreu um erro ao deletar a refeição."}), 500
+    
+  def get_meal(self, meal_id):
+    meal = next((m for m in current_user.meals if m.id == int(meal_id)), None)
+
+    if not meal:
+      return jsonify({"message": "Refeição não encontrada"}), 404
+    
+    return jsonify({"meal": meal.to_dict()})

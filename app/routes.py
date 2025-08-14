@@ -51,15 +51,11 @@ def register_meal_routes(app):
     def update_meal(meal_id):
         return meal.update_meal(meal_id)
     
-    # @app.route('/user/<int:user_id>', methods = ["GET"])
-    # @login_required
-    # def get_user(user_id):
-    #     return user.get_user(user_id)
-    
-    # @app.route('/user/<int:user_id>', methods = ["PATCH"])
-    # @login_required
-    # def update_user(user_id):
-    #     return user.update_user(user_id)
+    @app.route('/meal/<int:meal_id>', methods = ["GET"])
+    @login_required
+    def get_meal(meal_id):
+        return meal.get_meal(meal_id)
+
     
     @app.route('/meal/delete/<int:meal_id>', methods = ["DELETE"])
     @login_required
