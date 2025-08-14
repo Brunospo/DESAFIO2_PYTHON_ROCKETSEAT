@@ -1,5 +1,5 @@
 from .user_controller import UserController
-from .diet_controller import DietController
+from .meal_controller import MealController
 from flask_login import login_required
 
 def register_user_routes(app):
@@ -33,23 +33,23 @@ def register_user_routes(app):
     def delete_user(user_id):
         return user.delete_user(user_id)
     
-def register_diet_routes(app):
-    diet = DietController()
+def register_meal_routes(app):
+    meal = MealController()
 
-    @app.route('/diet/register', methods = ["POST"])
+    @app.route('/meal/register', methods = ["POST"])
     @login_required
-    def register_diet():
-        return diet.register_diet()
+    def register_meal():
+        return meal.register_meal()
     
-    @app.route('/diet/list', methods = ["GET"])
+    @app.route('/meal/list', methods = ["GET"])
     @login_required
-    def list_diets():
-        return diet.list_diets()
+    def list_meals():
+        return meal.list_meals()
     
-    @app.route('/diet/update/<int:diet_id>', methods = ["PUT"])
+    @app.route('/meal/update/<int:meal_id>', methods = ["PUT"])
     @login_required
-    def update_diet(diet_id):
-        return diet.update_diet(diet_id)
+    def update_meal(meal_id):
+        return meal.update_meal(meal_id)
     
     # @app.route('/user/<int:user_id>', methods = ["GET"])
     # @login_required
@@ -61,7 +61,7 @@ def register_diet_routes(app):
     # def update_user(user_id):
     #     return user.update_user(user_id)
     
-    @app.route('/diet/delete/<int:diet_id>', methods = ["DELETE"])
+    @app.route('/meal/delete/<int:meal_id>', methods = ["DELETE"])
     @login_required
-    def delete_diet(diet_id):
-        return diet.delete_diet(diet_id)
+    def delete_meal(meal_id):
+        return meal.delete_meal(meal_id)

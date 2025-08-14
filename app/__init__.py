@@ -29,9 +29,9 @@ def create_app():
   def unauthorized():
     return {"message": "Autenticação necessária"}, 401
 
-  from .routes import register_user_routes, register_diet_routes
+  from .routes import register_user_routes, register_meal_routes
   register_user_routes(app)
-  register_diet_routes(app)
+  register_meal_routes(app)
 
   with app.app_context():
     db.create_all()

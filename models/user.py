@@ -9,4 +9,4 @@ class User(db.Model, UserMixin):
   password = db.Column(db.String(128), nullable=False)
 
 # Relacionamento com ListaDeCompras
-  diets = db.relationship('Diet', backref='users', lazy=True)
+  meals = db.relationship('Meal', backref='users', lazy=True)
