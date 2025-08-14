@@ -26,8 +26,8 @@ A aplicação está conteinerizada com **Docker Compose** para facilitar o desen
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
+git clone https://github.com/Brunospo/DESAFIO2_PYTHON_ROCKETSEAT.git
+cd DESAFIO2_PYTHON_ROCKETSEAT
 ```
 
 2. Copie o arquivo .env.example para um novo arquivo chamado .env e preencha com as suas configurações:

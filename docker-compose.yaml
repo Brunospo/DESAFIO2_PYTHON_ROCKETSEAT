@@ -17,8 +17,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: app_flask
-    volumes:
-      - ./:/app
+    # volumes:
+    #   - ./:/app
     depends_on:
       - postgres_db
     env_file:
