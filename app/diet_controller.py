@@ -67,3 +67,16 @@ class DietController:
       return jsonify({"message": "Dieta atualizada com sucesso!"}), 200
     except Exception:
       return jsonify({"erro": "Ocorreu um erro ao atualizar a dieta."}), 500
+    
+  def delete_diet(self, diet_id):
+    diet = next((d for d in current_user.diets if d.id == int(diet_id)), None)
+
+    if not diet:
+      return jsonify({"message": "Dieta não encontrada"}), 404
+    
+    try:
+      db.session.delete(diet)
+      db.session.commit()
+      return jsonify({"message": "Dieta deletada com sucesso!"}), 200
+    except Exception:
+      return jsonify({"erro": "Ocorreu um erro ao deletar a dieta."}), 500

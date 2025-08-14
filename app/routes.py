@@ -61,7 +61,7 @@ def register_diet_routes(app):
     # def update_user(user_id):
     #     return user.update_user(user_id)
     
-    # @app.route('/user/<int:user_id>', methods = ["DELETE"])
-    # @login_required
-    # def delete_user(user_id):
-    #     return user.delete_user(user_id)
+    @app.route('/diet/delete/<int:diet_id>', methods = ["DELETE"])
+    @login_required
+    def delete_diet(diet_id):
+        return diet.delete_diet(diet_id)
